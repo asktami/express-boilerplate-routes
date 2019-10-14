@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const logger = require('./logger');
 // const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -7,7 +8,7 @@ const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
 
 // ROUTERS
-const myRouter = require('./myRouter/myrouter-router');
+const cardRouter = require('./card/card-router');
 
 const app = express();
 
@@ -17,6 +18,11 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 app.use(helmet.hidePoweredBy());
+
+// get to / without authorization
+app.get('/', (req, res) => {
+	res.send('Hello, world!');
+});
 
 //  validate that an Authorization header with an API token is present
 app.use(function validateBearerToken(req, res, next) {
@@ -33,11 +39,7 @@ app.use(function validateBearerToken(req, res, next) {
 });
 
 // USE ROUTER
-app.use(myRouter);
-
-app.get('/', (req, res) => {
-	res.send('Hello, world!');
-});
+app.use(cardRouter);
 
 app.use(function errorHandler(error, req, res, next) {
 	let response;
