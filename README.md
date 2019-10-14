@@ -2,7 +2,7 @@
 
 This is a boilerplate project used for starting new projects (that will be deployed to Heroku)!
 
-Includes a sample route for endpoints, Winston (for logging) and UUID (for creating UUIDs).
+Includes a sample route for endpoints (card), Winston (for logging) and UUID (for creating UUIDs).
 
 ## Set up
 
