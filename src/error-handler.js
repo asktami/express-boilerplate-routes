@@ -7,7 +7,16 @@ function errorHandler(error, req, res, next) {
 		response = { error: { message: 'server error' } };
 	} else {
 		console.error(error);
-		logger.error(error.message);
+
+		// include winston logging
+		// to just log message:
+		// logger.error(error.message);
+		logger.error(
+			`${error.status || 500} - ${error.message} - ${req.originalUrl} - ${
+				req.method
+			} - ${req.ip}`
+		);
+
 		response = { message: error.message, error };
 	}
 	res.status(500).json(response);
