@@ -4,7 +4,7 @@ This is a boilerplate project used for starting new projects (that will be deplo
 
 Includes a sample route for endpoints (card), Winston (for logging) and UUID (for creating UUIDs).
 
-## Set up
+## Setup
 
 Complete the following steps to start a new project (NEW-PROJECT-NAME):
 
