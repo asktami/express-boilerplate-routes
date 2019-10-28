@@ -1,4 +1,4 @@
-# Express Boilerplate with Routes, Winston and UUID.
+# Express Boilerplate with Routes, Winston and UUID
 
 This is a boilerplate project used for starting new projects (that will be deployed to Heroku)!
 
